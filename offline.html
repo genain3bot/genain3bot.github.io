@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+  <title>GenAI in Education ChatBot</title>
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+  <link rel="manifest" href="manifest.json">
+	<link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="stylesheet" href="https://use.typekit.net/itf7hcn.css">
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+<meta name="apple-mobile-web-app-title" content="GenAIEduBot" />
+
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+  <meta name="description" content="GenAI in Education ChatBot - Generative AI : N-TUTORR National Network (GenAI:N3)" />
+	<meta name="robots" content="noodp" />
+	<meta name="author" content="Mohammed Cherbatji">
+	<meta name="keywords" content="Generative AI : N-TUTORR National Network (GenAI:N3), GenAI, GenAI:N3, N-TUTORR, ntutorr, GenAI in Education ChatBot, ChatBot, Generative AI in Higher Education" />
+	<meta property="og:locale" content="en_IE" />
+	<meta property="og:type" content="website" />
+	<meta property="og:title" content="GenAI in Education ChatBot" />
+	<meta property="og:description" content="GenAI in Education ChatBot - Generative AI : N-TUTORR National Network (GenAI:N3)" />
+	<meta property="og:url" content="https://genain3.ie/" />
+	<meta property="og:site_name" content="GenAI in Education ChatBot" />
+	<meta property="og:image" content="share.jpg" />
+
+  <style>
+    body {
+      background-color: #090909;
+      font-family: 'tenon', sans-serif;
+    }
+
+    h2 {
+      color: #fff;
+      font-size: 24px;
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    img {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      margin-top: 20px;
+    }
+
+    button {
+        display: block;
+      }
+
+  </style>
+</head>
+<body>
+  <img src="logo.png" width="30%" height="30%" />
+  <h2>You are offline</h2>
+  <p style="color: #fff; text-align: center;">Please check your internet connection</p>
+  <p>Click the button below to try reloading.</p>
+    <button type="button">⤾ Reload</button>
+
+    <script>
+      // Manual reload feature.
+      document.querySelector("button").addEventListener("click", () => {
+        window.location.reload();
+      });
+
+      // Listen to changes in the network state, reload when online.
+      // This handles the case when the device is completely offline.
+      window.addEventListener('online', () => {
+        window.location.reload();
+      });
+
+      // Check if the server is responding and reload the page if it is.
+      // This handles the case when the device is online, but the server
+      // is offline or misbehaving.
+      async function checkNetworkAndReload() {
+        try {
+          const response = await fetch('.');
+          // Verify we get a valid response from the server
+          if (response.status >= 200 && response.status < 500) {
+            window.location.reload();
+            return;
+          }
+        } catch {
+          // Unable to connect to the server, ignore.
+        }
+        window.setTimeout(checkNetworkAndReload, 2500);
+      }
+
+      checkNetworkAndReload();
+    </script>
+</body>
+</html>
